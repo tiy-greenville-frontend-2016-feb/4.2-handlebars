@@ -8,7 +8,38 @@
   </head>
   <body>
 
-    <h1>Hello World!</h1>
+    <div class="container"></div>
+
+    <script id="header-template" type="text/x-handlebars-template">
+      <div class="row header">
+        <div class="col-md-12"><h1>My Albums :: {{count}}</h1></div>
+      </div>
+    </script>
+
+    <script id="album-tile" type="text/x-handlebars-template">
+      <div class="row photo-catalog">
+
+        {{#each albums}}
+          <div class="col-md-4">
+            <div class="photo-container">
+
+              <a href="#album-{{@index}}" class="album-tile first">
+                <img src="{{thumb.image}}" alt="{{thumb.title}}"/>
+                <div>{{title}}</div>
+              </a>
+
+              <ul>
+                {{#each photos}}
+                  <li>{{title}}</li>
+                {{/each}}
+              </ul>
+
+            </div>
+          </div>
+        {{/each}}
+
+      </div>
+    </script>
 
     <script src="js/bundle.js"></script>
   </body>
